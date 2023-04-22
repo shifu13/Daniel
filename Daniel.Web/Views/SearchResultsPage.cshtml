@@ -1,0 +1,17 @@
+﻿@inherits UmbracoViewPage<ContentModels.SearchResultsPage>
+@if (Model.FullTextSearchResult != null)
+{
+    <ul>
+        @foreach (var result in Model.FullTextSearchResult.Results)
+        {
+            <li>
+                <a href="@result.Content.Url()">@result.Title</a>
+                <p>
+                    @result.Summary
+                </p>
+            </li>
+        }
+    </ul>
+
+    <ec-pagination uri="@Model.Uri()" current-page="@((int)Model.FullTextSearchResult.CurrentPage)" total-pages="@((int)Model.FullTextSearchResult.TotalPages)"></ec-pagination>
+}

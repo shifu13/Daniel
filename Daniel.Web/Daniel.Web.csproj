@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<DefaultItemExcludes>$(DefaultItemExcludes);wwwroot/media/**;</DefaultItemExcludes>
+		
+		<CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+
+		<!-- Keep this as false if ModelsBuilder mode is InMemoryAuto -->
+		<RazorCompileOnBuild>false</RazorCompileOnBuild>
+		<RazorCompileOnPublish>true</RazorCompileOnPublish>
+		<RestoreAdditionalProjectSources>
+			https://ecreo-nuget.azurewebsites.net/nuget
+		</RestoreAdditionalProjectSources>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Ecreo.Essentials" Version="10.2.1" />
+		<PackageReference Include="Ecreo.Essentials.AzureADLogin" Version="10.0.2" />
+		<PackageReference Include="Ecreo.Essentials.FrontpageUrl" Version="10.0.1" />
+		<PackageReference Include="Ecreo.Essentials.PageNotFound" Version="10.0.1" />
+		<PackageReference Include="Ecreo.Essentials.Seo" Version="10.0.1" />
+		<PackageReference Include="Ecreo.Essentials.StarterKit" Version="10.1.0" />
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
+		<PackageReference Include="Our.Umbraco.FullTextSearch" Version="3.0.0" />
+		<PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="3.1.0" />
+		<PackageReference Include="Skybrud.Umbraco.Redirects" Version="4.0.0" />
+		<PackageReference Include="Umbraco.Cms" Version="10.2.0" />
+		<PackageReference Include="Umbraco.Forms" Version="10.2.0" />
+		<PackageReference Include="Umbraco.StorageProviders.AzureBlob" Version="10.0.0" />
+
+		<!-- Force windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older windows 10 and most if not all winodws servers will run NLS -->
+		<PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+		<RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2" />
+	</ItemGroup>
+
+</Project>

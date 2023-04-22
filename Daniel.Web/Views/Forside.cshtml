@@ -1,0 +1,14 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Frontpage>
+@using ContentModels = Ecreo.Essentials.UmbracoTemplate.Models.ContentModels;
+@{
+	Layout = "_Master.cshtml";
+}
+
+@if (Model is ContentModels.ITopbannerComposition) {
+	<ec-partial name="TopbannerComposition" model="Model"/>
+}
+
+<div class="container mx-auto">
+	<ec-block-list list="Model.BlockGrid"></ec-block-list>
+</div> 

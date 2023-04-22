@@ -1,0 +1,49 @@
+﻿@using Ecreo.Essentials.Frontend.HtmlSnippets
+@inherits UmbracoViewPage
+@{
+    Layout = null;
+    var site = Model.AncestorOrSelf<ContentModels.Site>(); // could also just use Model.Site, but this way we enforce it to be of type Site
+}
+<!doctype html>
+<html lang="@(site?.GetCultureFromDomains())">
+
+<head>
+    <link rel="preload" as="stylesheet" href="/css/main.css" asp-append-version="true" />
+    <link rel="preload" as="script" href="/scripts/main.js" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+    <ec-meta for="@Model" />
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.HeadStart"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.HeadStart"/>
+
+    <style type="text/css">[x-cloak]{display: none;}</style>
+
+    @RenderSection("InsideHead", false)
+    
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.HeadEnd"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.HeadEnd"/>
+</head>
+
+
+<body>
+    <link rel="stylesheet" href="/css/main.css" asp-append-version="true" />
+
+    @RenderSection("InsideBody", false)
+    
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.BodyStart"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.BodyStart"/>
+
+    @RenderBody()
+
+    <ec-partial name="Footer" model="Model"/>
+    @RenderSection("InsideFooter", false)
+
+    <script src="/scripts/main.js" defer asp-append-version="true"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.BodyEnd"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.BodyEnd"/>
+</body>
+</html>

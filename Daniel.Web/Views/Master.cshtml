@@ -1,0 +1,57 @@
+﻿@*
+    this view doesn't set a model, because the masterpage is master for all kinds of models.
+    So instead we just ase the default IPublishedContent, and add variables for the different
+    kinds of models we need, like ISettings etc.
+
+    Also, consider making a custom ViewPage for "master controller logic", like getting a nav etc.
+*@
+@using Ecreo.Essentials.Frontend.HtmlSnippets
+@inherits UmbracoViewPage
+@{
+    Layout = null;
+    var site = Model.AncestorOrSelf<ContentModels.Site>(); // could also just use Model.Site, but this way we enforce it to be of type Site
+}
+<!doctype html>
+<html lang="@site.GetCultureFromDomains()">
+
+<head>
+    <ec-meta for="@Model" />
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.HeadStart"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.HeadStart"/>
+
+    <link rel="preload" as="script" href="~/scripts/main.js" asp-append-version="true" />
+
+    <style type="text/css">
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+
+    <link rel="preload" as="script" href="/scripts/main.js" asp-append-version="true" />
+    <link rel="preload" as="stylesheet" href="/css/main.css" asp-append-version="true" />
+
+    @RenderSection("InsideHead", false)
+    
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.HeadEnd"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.HeadEnd"/>
+</head>
+
+
+<body>
+    <link rel="stylesheet" href="/css/main.css" asp-append-version="true" />
+
+    @RenderSection("InsideBody", false)
+    
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.BodyStart"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.BodyStart"/>
+
+    @RenderBody()
+
+    @RenderSection("InsideFooter", false)
+
+    <script src="~/scripts/main.js" defer asp-append-version="true"></script>
+    
+    <ec-html-snippet for="@site" place="@HtmlSnippetPlace.BodyEnd"/>
+    <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.BodyEnd"/>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@inherits UmbracoViewPage<BlockViewModel<ContentModels.CasinoDealsBlock>>
+
+<div id="@Model.Content.AnchorLinkText" class="relative">
+    <div class="flex flex-col items-center mb-8">
+        <div class="flex flex-row items-center">
+            @if (!Model.Content.Title.IsNullOrWhiteSpace()) 
+            {
+                <h2 class="text-4xl uppercase font-montserrat font-bold">@Model.Content.Title</h2>
+            }
+            @if (!Model.Content.Subtitle.IsNullOrWhiteSpace())
+            {
+                <span class="px-4">|</span>
+                <h2 class="text-4xl uppercase text-ui-blue font-montserrat font-bold">@Model.Content.Subtitle</h2>
+            }
+        </div>
+        @if (Model.Content.Description != null)
+        {
+            <div class="text-xl font-karla">@Model.Content.Description</div>
+        }
+    </div>
+
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[1.25rem] md:gap-x-11 pb-5">
+        @if (Model.Content.ChooseCasinoDeals != null)
+        {
+            @foreach (ContentModels.SingleCasinoDeal item in Model.Content.ChooseCasinoDeals)
+            {
+            <div class="flex flex-col group rounded-2xl h-[20rem] lg:h-[36.25rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-red-300">
+                @if (@item.Cta != null && @item.Cta != "Ingen")
+                {
+                    <div class="ribbon ribbon-top-left"><span style="background-color: #@item.CtaBgColor">@item.Cta</span></div>
+                }
+
+                <div class="z-10 h-full flex flex-col justify-end">
+                    @if (@item.Img != null)
+                    {
+                        <div class="top-[3.75rem] lg:top-[6rem] absolute left-2/4 -translate-x-1/2">
+                            <img src="@item.Img.Url()" alt="@item.Img.Name" class="h-full w-full object-cover"/>
+                        </div>
+                    }
+
+                    <div class="p-3 lg:p-[2rem] z-10">
+                        @if (@item.Description != null)
+                        {
+                            <div class="text-14 md:text-16 lg:text-17 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@item.Description</div>   
+                        }
+            
+                        @if (@item.Link != null)
+                        {
+                            <a href="@item.Link.Url" target="_blank" class="bg-ui-blue font-montserrat flex flex-row rounded justify-center font-semibold text-10 sm:text-12 md:text-16 lg:text-18 relative px-4 py-4 md:px-5 md:py-4 lg:px-5 lg:py-4 2xl:px-6 2xl:py-4 hover:text-white transition ease-in-out duration-300">
+                                @item.Link.Name
+                            </a>
+                        }
+
+                        @if (@item.StopGamesDescription != null)
+                        {
+                            <div class="text-center mt-4 text-white text-10">
+                                @item.StopGamesDescription
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            }
+        }
+    </div>
+</div>

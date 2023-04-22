@@ -1,0 +1,131 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Ecreo.Essentials.UmbracoTemplate.Models.ContentModels;
+@inherits UmbracoViewPage<ContentModels.SingleCasinoDeal>
+
+
+@{
+    var tag = "";
+    @foreach (var item in Model.Category)
+    {
+        tag += " " + item; 
+    }
+}
+     
+<div class="element-item @tag | flex flex-col group rounded-2xl h-[20rem] lg:h-[36.25rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-red-300" data-category="@tag">
+    @if (Model.Cta != null && Model.Cta != "Ingen")
+    {
+        <div class="ribbon ribbon-top-left"><span style="background-color: #@Model.CtaBgColor">@Model.Cta</span></div>
+    }
+
+    <div class="z-10 h-full flex flex-col justify-end">
+        @if (Model.Img != null)
+        {
+            <div class="top-[3.75rem] lg:top-[6rem] absolute left-2/4 -translate-x-1/2">
+                <img src="@Model.Img.Url()" alt="@Model.Img.Name" class="h-full w-full object-cover"/>
+            </div>
+        }
+
+        <div class="p-3 lg:p-[2rem] z-10">
+            @if (Model.Description != null)
+            {
+                <div class="text-14 md:text-16 lg:text-17 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@Model.Description</div>   
+            }
+            
+            @if (Model.Link != null)
+            {
+                <a href="@Model.Link.Url" target="_blank" class="bg-ui-blue font-montserrat flex flex-row rounded justify-center font-semibold text-10 sm:text-12 md:text-16 lg:text-18 relative px-4 py-4 md:px-5 md:py-4 lg:px-5 lg:py-4 2xl:px-6 2xl:py-4 hover:text-white transition ease-in-out duration-300">
+                    @Model.Link.Name
+                </a>
+            }
+
+            @if (Model.StopGamesDescription != null)
+            {
+                <div class="text-center mt-4 text-white text-10">
+                    @Model.StopGamesDescription
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .overlay::after {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		content: "";
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+    .element-item {
+        width: calc(50% - 10px);
+    }
+
+    @@media only screen and (min-width: 767px) {
+        .element-item {
+            width: calc(33.33% - 20px);
+        }
+    }
+
+    @@media only screen and (min-width: 1300px) {
+        .element-item {
+            width: calc(25% - 40px);
+        }
+    }
+
+    /* common */
+    .ribbon {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      position: absolute;
+    }
+    .ribbon::before,
+    .ribbon::after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid #2980b9;
+    }
+    .ribbon span {
+      position: absolute;
+      display: block;
+      width: 225px;
+      padding: 15px 0;
+     
+      box-shadow: 0 5px 10px rgba(0,0,0,.1);
+      color: #fff;
+      font: 700 18px/1 'Lato', sans-serif;
+      text-shadow: 0 1px 1px rgba(0,0,0,.2);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* top left*/
+    .ribbon-top-left {
+      top: -10px;
+      left: -10px;
+    }
+    .ribbon-top-left::before,
+    .ribbon-top-left::after {
+      border-top-color: transparent;
+      border-left-color: transparent;
+    }
+    .ribbon-top-left::before {
+      top: 0;
+      right: 0;
+    }
+    .ribbon-top-left::after {
+      bottom: 0;
+      left: 0;
+    }
+    .ribbon-top-left span {
+      right: -25px;
+      top: 30px;
+      transform: rotate(-45deg);
+    }
+</style> 

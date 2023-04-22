@@ -1,0 +1,226 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Ecreo.Essentials.UmbracoTemplate.Models.ContentModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.CasinoDeals>
+
+@{
+	Layout = "_Master.cshtml";
+	var allTags = Model.Children<ContentModels.SingleCasinoDeal>()?.SelectMany(x => x.Category).Distinct().OrderBy(x => x);
+}
+
+@if (Model is ContentModels.ITopbannerComposition) {
+	<ec-partial name="TopbannerComposition" model="Model"/>
+}
+
+<div id="@Model.AnchorLinkText" class="container mx-auto">
+	<div class="my-8 lg:my-12">
+		<div class="flex flex-col items-center mb-8">
+			<div class="flex flex-row items-center">
+				@if (!Model.Title.IsNullOrWhiteSpace()) 
+				{
+					<h2 class="text-4xl uppercase font-montserrat font-bold">@Model.Title</h2>
+				}
+				@if (!Model.Subtitle.IsNullOrWhiteSpace())
+				{
+					<span class="px-4">|</span>
+					<h2 class="text-4xl uppercase text-ui-blue font-montserrat font-bold">@Model.Subtitle</h2>
+				}
+			</div>
+			@if (Model.Description != null)
+			{
+				<div class="text-xl font-karla">@Model.Description</div>
+			}
+		</div>
+
+		<div>
+			<div class="mb-5">
+				<div class="button-group filters-button-group | flex flex-row md:gap-x-6" x-data="{open: false, title: 'Alle'}">
+					<div class="w-full md:w-auto">
+						<div class="button custom-gradient | w-full md:w-[9.6875rem] flex flex-row justify-between items-center md:hidden font-semibold text-16 text-ui-blue relative px-4 py-2.5 md:px-5 md:py-4 lg:px-5 lg:py-4 2xl:px-6 2xl:py-4" 
+
+						x-on:click="open =! open"
+						>	
+						<span x-text="title"></span>
+						@*
+							<ec-svg src="~/img/icons/arrow-down.svg" class="h-5 w-5 text-brand"></ec-svg>
+						*@
+						</div>
+						
+						<div class="lg:hidden bg-brand text-white drop-shadow-md rounded-t-[1.875rem] px-4 py-6 fixed bottom-0 left-0 right-0 z-50 w-full"
+							x-show="open" 
+							x-on:click.away="open = false" 
+							x-cloak
+							x-transition:enter="transition ease-out duration-1000" 
+							x-transition:enter-start="translate-y-full"
+							x-transition:enter-end="translate-y-0"
+							x-transition:leave="transition ease-in duration-1000" 
+							x-transition:leave-start="translate-y-0"
+							x-transition:leave-end="translate-y-full" 
+							>
+							<div class="w-full text-center relative mb-6">
+								<p class="font-bold text-18 leading-20">@Umbraco.GetDictionaryValue("Filter Type", "Vælg type")</p>
+								<button class="absolute top-0 right-2" x-on:click="open = false">
+									<ec-svg src="~/img/icons/cross.svg" class="h-5 w-5 text-white"></ec-svg>
+								</button>
+							</div>
+							<div class="flex flex-col items-start">
+								<button x-on:click="title = 'Alle', open = false" :class="{ 'border-white': title == 'Alle', 'border-brand': title != 'Alle' }"  class="button is-checked | text-18 mb-6 flex flex-row items-center justify-between w-full border border-2 px-4 py-2 rounded-full" data-filter="*">
+									@Umbraco.GetDictionaryValue("Filter Everyone","Alle")
+									<ec-svg src="~/img/icons/checked.svg"  :class="{'hidden' : title != 'Alle'}" class="h-6 w-6 text-white"></ec-svg>
+								</button>
+								@foreach (var tag in allTags) {
+									<button x-on:click="title = '@tag', open = false" :class="{'border-white': title == '@tag', 'border-brand' : title != '@tag'}" class="button | text-18 mb-6 flex flex-row items-center justify-between w-full border border-2 px-4 py-2 rounded-full" data-filter=".@tag">
+										@tag
+										<ec-svg src="~/img/icons/checked.svg"  :class="{'hidden' : title != '@tag'}" class="h-6 w-6 text-white"></ec-svg>
+									</button>
+								}
+							</div>
+						</div>
+					</div>
+					<button class="button | hidden md:block text-l text-ui-blue-400 font-montserrat is-checked" data-filter="*">
+						@Umbraco.GetDictionaryValue("Filter Everyone","Alle")
+					</button>
+				
+					@foreach (var tag in allTags) {
+						<button class="button | hidden md:block text-l uppercase font-montserrat" data-filter=".@tag">
+							@tag
+						</button>
+					}
+					
+				</div>
+			</div>
+
+			<div id="isotope" x-data> 
+				<div class="gutter-sizer"></div>
+				
+				<div class="relative py-8" x-intersect:enter="shown = true">
+					@{
+						var count = 0;
+					}
+					@if (Model.Children<ContentModels.SingleCasinoDeal>().Distinct() != null) {
+						@foreach (var item in Model.Children<ContentModels.SingleCasinoDeal>().Distinct()) 
+						{
+							@Html.Partial("Card", item)
+						}
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container mx-auto">
+	<ec-block-list list="Model.BlockGrid"></ec-block-list>
+</div>
+
+<script src="~/scripts/isotope.js"></script>
+
+<script>
+document.addEventListener('alpine:init', () => {
+    Alpine.store('count', {
+        on: false,
+ 
+        toggle() {
+            this.on = ! this.on
+        }
+    })
+})
+
+
+var iso = new Isotope( '#isotope', {
+  itemSelector: '.element-item',
+  layoutMode: 'fitRows',
+  percentPosition: true,
+  columnWidth: '.gutter-sizer',
+  fitRows: {
+	  gutter: '.gutter-sizer'
+  },
+});
+
+setTimeout(() =>iso.arrange(), 1);
+
+var filterFns = {
+  ium: function( itemElem ) {
+    var name = itemElem.querySelector('.name').textContent;
+    return name.match( /ium$/ );
+  }
+};
+
+var filtersElem = document.querySelector('.filters-button-group');
+filtersElem.addEventListener( 'click', function( event ) {
+
+  if ( !matchesSelector( event.target, 'button' ) ) {
+    return;
+  }
+  var filterValue = event.target.getAttribute('data-filter');
+
+  filterValue = filterFns[ filterValue ] || filterValue;
+  iso.arrange({ filter: filterValue });
+
+    var filteredItems = iso.getFilteredItemElements()
+
+	filteredItems.forEach((elm, index) => {
+		if(!elm.getAttribute("display")) {
+			const parent = elm.parentElement
+		}
+    })
+});
+
+var buttonGroups = document.querySelectorAll('.button-group');
+for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+  var buttonGroup = buttonGroups[i];
+  radioButtonGroup( buttonGroup );
+}
+
+function radioButtonGroup( buttonGroup ) {
+  buttonGroup.addEventListener( 'click', function( event ) {
+
+    // only work with buttons
+    if ( !matchesSelector( event.target, 'button' ) ) {
+      return;
+    }
+	var allButtons = buttonGroup.querySelectorAll('.is-checked');
+	
+	allButtons.forEach(btn => {
+		btn.classList.remove("is-checked");
+	})
+
+	event.target.classList.add('is-checked');
+	var i = 0 
+  });
+}
+
+</script>
+
+<style>
+	.button-group:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	
+	.grid:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	.gutter-sizer {
+		width: 20px;
+	}
+
+	.is-checked {
+		font-weight: 600;
+	}
+
+	@@media only screen and (min-width: 767px) {
+		.gutter-sizer {
+			width: 30px;
+		}
+	}
+
+	@@media only screen and (min-width: 1280px) {
+		.gutter-sizer {
+			width: 40px;
+		}
+	}
+</style>

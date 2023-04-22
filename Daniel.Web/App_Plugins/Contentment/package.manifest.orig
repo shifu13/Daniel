@@ -1,0 +1,10 @@
+﻿{
+    "name": "Contentment",
+<<<<<<< HEAD
+    "version": "5.0.0-alpha001",
+=======
+    "version": "4.1.0",
+>>>>>>> 4.1.0
+    "css": [ "~/App_Plugins/Contentment/contentment.css" ],
+    "javascript": [ "~/App_Plugins/Contentment/contentment.js" ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "ui",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "run-p build:css build:js",
+    "watch": "run-p watch:css watch:js",
+    "build:css": "cross-env NODE_ENV=production && npx tailwindcss -i ./UI/CSS/main.scss -o ./wwwroot/css/main.css -c ./UI/CSS/tailwind.config.js --postcss ./UI/CSS/postcss.config.js --minify",
+    "watch:css": "npx tailwindcss -i ./UI/CSS/main.scss -o ./wwwroot/css/main.css -c ./UI/CSS/tailwind.config.js --postcss ./UI/CSS/postcss.config.js --watch --minify",
+    "build:js": "cross-env NODE_ENV=production && esbuild ./UI/Scripts/main.js --bundle --minify --sourcemap --target=es2020 --outdir=./wwwroot/scripts",
+    "watch:js": "esbuild ./UI/Scripts/main.js --bundle --minify --sourcemap --target=es2020 --outdir=./wwwroot/scripts --watch"
+  },
+  "author": "ecreo",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.2",
+    "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.14.42",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.14",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
+    "tailwindcss": "^3.1.4"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.10.2",
+    "@alpinejs/focus": "^3.10.2",
+    "@alpinejs/intersect": "^3.10.2",
+    "@alpinejs/persist": "^3.10.2",
+    "alpinejs": "^3.10.2",
+    "aspnet-client-validation": "^0.5.3",
+    "isotope-layout": "^3.0.6",
+    "lazysizes": "^5.3.2",
+    "tiny-slider": "^2.9.4",
+    "ts-polyfill": "^3.8.2"
+  }
+}
