@@ -82,6 +82,22 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent UmbracoInternalRedirectId => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "umbracoInternalRedirectId");
 
 		///<summary>
+		/// #Beskrivelse
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerDescription")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterDescription => global::Ecreo.Essentials.UmbracoTemplate.Models.ContentModels.FooterComposition.GetFooterDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// #Email
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerEmail")]
+		public virtual string FooterEmail => global::Ecreo.Essentials.UmbracoTemplate.Models.ContentModels.FooterComposition.GetFooterEmail(this, _publishedValueFallback);
+
+		///<summary>
 		/// #Main Navigation
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
@@ -104,6 +120,14 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("footerSocialLinks")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> FooterSocialLinks => global::Ecreo.Essentials.UmbracoTemplate.Models.ContentModels.FooterComposition.GetFooterSocialLinks(this, _publishedValueFallback);
+
+		///<summary>
+		/// #Overskrift
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerTitle")]
+		public virtual string FooterTitle => global::Ecreo.Essentials.UmbracoTemplate.Models.ContentModels.FooterComposition.GetFooterTitle(this, _publishedValueFallback);
 
 		///<summary>
 		/// #Description

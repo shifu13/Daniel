@@ -22,6 +22,16 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 	/// <summary>#Footer</summary>
 	public partial interface IFooterComposition : IPublishedElement
 	{
+		/// <summary>#Beskrivelse</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterDescription { get; }
+
+		/// <summary>#Email</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string FooterEmail { get; }
+
 		/// <summary>#Main Navigation</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -36,6 +46,11 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> FooterSocialLinks { get; }
+
+		/// <summary>#Overskrift</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string FooterTitle { get; }
 	}
 
 	/// <summary>#Footer</summary>
@@ -68,6 +83,32 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		}
 
 		// properties
+
+		///<summary>
+		/// #Beskrivelse
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerDescription")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterDescription => GetFooterDescription(this, _publishedValueFallback);
+
+		/// <summary>Static getter for #Beskrivelse</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetFooterDescription(IFooterComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "footerDescription");
+
+		///<summary>
+		/// #Email
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerEmail")]
+		public virtual string FooterEmail => GetFooterEmail(this, _publishedValueFallback);
+
+		/// <summary>Static getter for #Email</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetFooterEmail(IFooterComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "footerEmail");
 
 		///<summary>
 		/// #Main Navigation
@@ -107,5 +148,18 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> GetFooterSocialLinks(IFooterComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(publishedValueFallback, "footerSocialLinks");
+
+		///<summary>
+		/// #Overskrift
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerTitle")]
+		public virtual string FooterTitle => GetFooterTitle(this, _publishedValueFallback);
+
+		/// <summary>Static getter for #Overskrift</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.0+ae516b2")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetFooterTitle(IFooterComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "footerTitle");
 	}
 }

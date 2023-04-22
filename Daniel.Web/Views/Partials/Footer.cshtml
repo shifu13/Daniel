@@ -4,8 +4,64 @@
     var site = Model.Root<ContentModels.Site>();
 }
 
-<Footer class="bg-black">
+<Footer class="bg-black py-8">
     <div class="container mx-auto">
-        <p>test</p>
+        <div class="grid grid-cols-3 items-center">
+            <div>
+                @if (!site.FooterTitle.IsNullOrWhiteSpace())
+                {
+                    <h3 class="font-montserrat uppercase font-semibold text-white">@site.FooterTitle</h3>
+                }
+
+                @if (!site.FooterEmail.IsNullOrWhiteSpace())
+                {
+                    <div class="flex flex-row items-center gap-4">
+                        <ec-svg src="~/img/icons/email" alt="email" class="w-10 h-10 text-white"></ec-svg>
+                        <a href="mailto:" class="text-white">@site.FooterEmail</a>
+                    </div>
+                }
+            </div>
+            <div>
+                @if (site.FooterDescription != null)
+                {
+                    <div class="footerrte | text-white">@site.FooterDescription</div>
+                }
+            </div>
+            <div>
+                <></>
+            </div>
+        </div>
+        
+
+        @if (site.FooterSocialLinks != null && site.FooterSocialLinks.Any()) {
+            <div class="flex flex-row justify-center lg:justify-start gap-6 lg:gap-3 order-1 lg:order-2 mb-6 lg:mb-0">
+			    @foreach (var item in site.FooterSocialLinks)
+			    {
+				    <a href="@item.Url" target="_@item.Target" title="@item.Name">
+
+                        @if (item.Url.Contains("facebook"))
+                        {
+                            <ec-svg src="~/img/icons/facebook.svg" alt="facebook" class="h-7 w-7 lg:h-5 lg:w-5 text-white transition-colors duration-300 ease-in-out"></ec-svg>
+                        }
+
+                        @if (item.Url.Contains("telegram"))
+                        {
+                            <ec-svg src="~/img/icons/telegram.svg" alt="linkedin" class="h-7 w-7 lg:h-5 lg:w-5 text-white transition-colors duration-300 ease-in-out"></ec-svg>
+                        }
+                        
+                        else
+                        {
+                            @item.Name
+                        }
+
+                    </a>
+			    }
+            </div>
+		}
+        <div class="border-t border-white border-t-px pt-4">
+            <span class="flex flex-row items-center justify-center text-white">
+                <span class="font-karla">D-bets.dk © 2023 All rights served</span>
+            </span>
+        </div>
     </div>
 </Footer>
