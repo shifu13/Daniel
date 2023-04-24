@@ -20,7 +20,7 @@
             @* Burger menu *@
             <div class="z-50 absolute right-0 lg:hidden" x-data="{burgerOpen: false}" x-cloak>
                 <button type="button" x-on:click="burgerOpen = true" class="transition-all duration-300 ease-in-out rounded p-3 text-white">
-                    burger
+                    <ec-svg class="text-white h-4 w-[4rem]" src="~/img/icons/burgermenu.svg" alt="burger"></ec-svg>
                 </button>
                 @* Open hidden nav *@
                 <nav class="scrollbar | container py-[3.687rem] h-screen fixed top-0 right-0 bg-ui-blue w-[20rem] sm:w-[25rem] 2xl:w-[41rem] drop-shadow-md overflow-auto drop-shadow-2xl"
@@ -52,7 +52,7 @@
                                 @foreach (var item in Model.MainNavigation)
                                 {
                                     <li>
-                                        <a href="@item.Url" class="text-base text-white font-karla uppercase font-semibold hover:text-ui-blue transition-all ease-in-out focus:text-ui-blue">@item.Name</a>
+                                        <a href="@item.Url" class="text-base text-white font-karla uppercase font-semibold transition-all ease-in-out focus:text-white focus:font-bold">@item.Name</a>
                                     </li>
                                 }
                             </ul>
