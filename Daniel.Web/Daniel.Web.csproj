@@ -13,8 +13,8 @@
 		<RestoreAdditionalProjectSources>
 			https://ecreo-nuget.azurewebsites.net/nuget
 		</RestoreAdditionalProjectSources>
+		<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
 	</PropertyGroup>
-	
 	<ItemGroup>
 		<PackageReference Include="Ecreo.Essentials" Version="10.2.1" />
 		<PackageReference Include="Ecreo.Essentials.FrontpageUrl" Version="10.0.1" />

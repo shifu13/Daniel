@@ -18,12 +18,12 @@
                 </ul>
             }
             @* Burger menu *@
-            <div class="z-50 absolute right-0 lg:hidden" x-data="{burgerOpen: false}" x-cloak>
-                <button type="button" x-on:click="burgerOpen = true" class="transition-all duration-300 ease-in-out rounded p-3 text-white">
-                    <ec-svg class="text-white h-4 w-[4rem]" src="~/img/icons/burgermenu.svg" alt="burger"></ec-svg>
-                </button>
+            <div class="z-50 absolute right-0 md:hidden" x-data="{burgerOpen: false}" x-cloak>
+                <button type="button" x-on:click="burgerOpen = true" class="transition-all duration-300 ease-in-out text-white">
+                    <ec-svg class="text-white h-4 w-[4rem]" src="~/img/icons/burger-menu.svg" alt="burger"></ec-svg>
+                </button> 
                 @* Open hidden nav *@
-                <nav class="scrollbar | container py-[3.687rem] h-screen fixed top-0 right-0 bg-ui-blue w-[20rem] sm:w-[25rem] 2xl:w-[41rem] drop-shadow-md overflow-auto drop-shadow-2xl"
+                <nav class="scrollbar | container py-8 h-screen fixed top-0 right-0 bg-ui-blue w-[20rem] sm:w-[25rem] 2xl:w-[41rem] drop-shadow-md overflow-auto drop-shadow-2xl"
                      x-show="burgerOpen"
                      x-on:keydown.window.escape="burgerOpen = false"
                      x-on:click.away="burgerOpen = false"
@@ -36,13 +36,9 @@
                      x-transition:leave-end="translate-x-full">
 
                     <div class="h-100">
-                        <div class="pb-[3.5rem] lg:hidden flex justify-between w-full items-center">
-                            <a href="@Umbraco.ContentAtRoot().FirstOrDefault().Url()" class="flex justify-center items-center">
-                                <ec-svg class="text-white h-4 w-[4rem]" src="~/img/identity/logo.svg" alt="logo-mobile"></ec-svg>
-                            </a>
-
+                        <div class="pb-[3.5rem] lg:hidden flex justify-end w-full items-center">
                             <button type="button" x-on:click="burgerOpen = false" class="flex justify-center items-center">
-                                <ec-svg class="text-white " src="~/img/icons/cross.svg" alt="arrow-left"></ec-svg>
+                                <ec-svg class="text-white" src="~/img/icons/cross.svg" alt="cross"></ec-svg>
                             </button>
                         </div>
 
