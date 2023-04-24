@@ -1,0 +1,36 @@
+﻿@inherits UmbracoViewPage<BlockViewModel<ContentModels.TwoColumnsBlock>>
+
+@if (Model.Content.OneColumn)
+{
+    <div class="relative">
+        <div id="@Model.Content.AnchorLinkText" class="@(Model.Content.Overlay ? "overlay" : "") py-8 flex items-center justify-center bg-fixed bg-cover w-full h-[25rem]" style="background-image: url(@Model.Content?.Img?.Url())">
+            @if (Model.Content.Text != null)
+            {
+                <div class="rte | container mx-auto text-white z-10">
+                    @Model.Content.Text
+                </div>
+            }
+        </div>
+    </div>
+} else
+{
+    <div id="@Model.Content.AnchorLinkText" class="flex flex-col md:flex-row items-center flex-nowrap">
+        @if (Model.Content.Img != null)
+        {
+            <div class="relative grow md:w-1/2 @(Model.Content.TextLeft ? "order-2" : "")">
+                <ec-picture src="@Model.Content.Img.Url()" alt="@Model.Content.Img.Name" width="500" quality="0" img-class="w-full h-full object-cover"></ec-picture>
+                @*
+                    <img src="@Model.Content.Img.Url()" alt="@Model.Content.Img.Name" class="w-full h-full object-cover"/>
+                *@
+            </div>
+        }
+        @if (Model.Content.Text != null)
+        {
+            <div class="md:w-1/2 grow @(Model.Content.TextLeft ? "order-1" : "")">
+                <div class="rte | mx-auto max-w-[30rem] py-4 md:pl-4 md:pt-4 w-full">
+                    @Model.Content.Text
+                </div>
+            </div>
+        }
+    </div>    
+}

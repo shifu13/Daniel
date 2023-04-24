@@ -17,7 +17,6 @@
 	
 	<ItemGroup>
 		<PackageReference Include="Ecreo.Essentials" Version="10.2.1" />
-		<PackageReference Include="Ecreo.Essentials.AzureADLogin" Version="10.0.2" />
 		<PackageReference Include="Ecreo.Essentials.FrontpageUrl" Version="10.0.1" />
 		<PackageReference Include="Ecreo.Essentials.PageNotFound" Version="10.0.1" />
 		<PackageReference Include="Ecreo.Essentials.Seo" Version="10.0.1" />
@@ -26,7 +25,7 @@
 		<PackageReference Include="Our.Umbraco.FullTextSearch" Version="3.0.0" />
 		<PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="3.1.0" />
 		<PackageReference Include="Skybrud.Umbraco.Redirects" Version="4.0.0" />
-		<PackageReference Include="Umbraco.Cms" Version="10.2.0" />
+		<PackageReference Include="Umbraco.Cms" Version="10.5.0" />
 		<PackageReference Include="Umbraco.Forms" Version="10.2.0" />
 		<PackageReference Include="Umbraco.StorageProviders.AzureBlob" Version="10.0.0" />
 

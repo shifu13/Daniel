@@ -27,13 +27,8 @@
 							<ec-picture media="@item.Content.Image" width="2000" quality="0" alt="" img-class="w-full h-full object-cover"></ec-picture>
 						}
 					</div>
-				} else if (!item.Content.YoutubeVimeoVideo.IsNullOrWhiteSpace())
-				{
-					<div class="@(item.Content.Overlay ? "overlay" : "") absolute inset-0 overflow-hidden">
-						<iframe src="@item.Content.YoutubeVimeoVideo" class="absolute w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-					</div>
-				} 
-				<div class="container z-10 relative h-full z-40 pb-[4.375rem] md:pb-[5rem] lg:pb-[13.81rem]">
+				}
+				<div class="container z-10 relative h-full z-40 md:pb-[5rem] lg:pb-[13.81rem]">
 					<div class="flex flex-col h-full justify-center items-center">
 						@if (item.Content.Header != null && item.Content.Header.Any())
 						{
@@ -44,7 +39,7 @@
 							<p class="@(item.Content.Overlay ? "text-white" : "") font-karla">@item.Content.Description</p>   
 						}
 						@if (item.Content.Link != null) {
-							<a href="@item.Content.Link.Url" class="border border-2 bg-transparent uppercase font-montserrat text-20 text-white font-semibold px-8 py-4 mt-12 transition-all ease-in-out hover:bg-white hover:text-black hover:font-semibold">@item.Content.Link.Name</a>
+							<a href="@item.Content.Link.Url" class="border border-2 bg-transparent uppercase font-montserrat text-12 md:text-16 lg:text-20 text-white font-semibold px-8 py-4 mt-8 md:mt-12 transition-all ease-in-out hover:bg-white hover:text-black hover:font-semibold">@item.Content.Link.Name</a>
 						}
 					</div>
 				</div>

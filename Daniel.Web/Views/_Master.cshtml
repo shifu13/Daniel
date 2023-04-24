@@ -33,7 +33,8 @@
     
     <ec-html-snippet for="@site" place="@HtmlSnippetPlace.BodyStart"/>
     <ec-html-snippet for="@Model" place="@HtmlSnippetPlace.BodyStart"/>
-
+    
+    <ec-partial name="Navigation" model="site"></ec-partial>
     @RenderBody()
 
     <ec-partial name="Footer" model="Model"/>

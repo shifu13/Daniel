@@ -1,0 +1,79 @@
+﻿@inherits UmbracoViewPage<ContentModels.Site>
+@using Umbraco.Cms.Core.Security;
+
+<Header class="fixed top-[2rem] 2xl:top-[3rem] z-50 w-full">
+    <div class="container mx-auto">
+        <div class="flex flex-row items-center gap-x-12">
+            <a class="font-montserrat uppercase font-semibold text-white text-xl hover:text-ui-blue transition-all ease-in-out" href="@Umbraco.ContentAtRoot().FirstOrDefault().Url()">@Model.FooterTitle</a>
+            
+            @if (Model.MainNavigation != null && Model.MainNavigation.Any())
+            {
+                <ul class="hidden md:flex flex-row items-center gap-x-8 text-white">
+                    @foreach (var item in Model.MainNavigation)
+                    {
+                        <li>
+                            <a href="@item.Url" class="text-base text-white font-karla uppercase font-semibold hover:text-ui-blue transition-all ease-in-out focus:text-ui-blue">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+            @* Burger menu *@
+            <div class="z-50 absolute right-0 lg:hidden" x-data="{burgerOpen: false}" x-cloak>
+                <button type="button" x-on:click="burgerOpen = true" class="transition-all duration-300 ease-in-out rounded p-3 text-white">
+                    burger
+                </button>
+                @* Open hidden nav *@
+                <nav class="scrollbar | container py-[3.687rem] h-screen fixed top-0 right-0 bg-ui-blue w-[20rem] sm:w-[25rem] 2xl:w-[41rem] drop-shadow-md overflow-auto drop-shadow-2xl"
+                     x-show="burgerOpen"
+                     x-on:keydown.window.escape="burgerOpen = false"
+                     x-on:click.away="burgerOpen = false"
+                     x-cloak
+                     x-transition:enter="transition ease-out duration-1000"
+                     x-transition:enter-start="translate-x-full"
+                     x-transition:enter-end="translate-x-0"
+                     x-transition:leave="transition ease-in duration-1000"
+                     x-transition:leave-start="translate-x-0"
+                     x-transition:leave-end="translate-x-full">
+
+                    <div class="h-100">
+                        <div class="pb-[3.5rem] lg:hidden flex justify-between w-full items-center">
+                            <a href="@Umbraco.ContentAtRoot().FirstOrDefault().Url()" class="flex justify-center items-center">
+                                <ec-svg class="text-white h-4 w-[4rem]" src="~/img/identity/logo.svg" alt="logo-mobile"></ec-svg>
+                            </a>
+
+                            <button type="button" x-on:click="burgerOpen = false" class="flex justify-center items-center">
+                                <ec-svg class="text-white " src="~/img/icons/cross.svg" alt="arrow-left"></ec-svg>
+                            </button>
+                        </div>
+
+                        @if (Model.MainNavigation != null && Model.MainNavigation.Any())
+                        {
+                            <ul class="flex flex-col items-center gap-x-8 text-white">
+                                @foreach (var item in Model.MainNavigation)
+                                {
+                                    <li>
+                                        <a href="@item.Url" class="text-base text-white font-karla uppercase font-semibold hover:text-ui-blue transition-all ease-in-out focus:text-ui-blue">@item.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</Header>
+
+<style>
+    /* hide scrollbar but allow scrolling */
+    scrollbar {
+        -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        scrollbar-width: none; /* for Firefox */
+        overflow-y: scroll;
+    }
+
+    scrollbar::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
+</style>

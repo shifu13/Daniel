@@ -11,16 +11,16 @@
     }
 }
      
-<div class="element-item @tag | flex flex-col group rounded-2xl h-[20rem] lg:h-[36.25rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-red-300" data-category="@tag">
+<div class="element-item @tag | flex flex-col group rounded-2xl h-[20rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-red-300" data-category="@tag">
     @if (Model.Cta != null && Model.Cta != "Ingen")
     {
-        <div class="ribbon ribbon-top-left"><span style="background-color: #@Model.CtaBgColor">@Model.Cta</span></div>
+        <div class="ribbon ribbon-top-left z-10"><span style="background-color: #@Model.CtaBgColor">@Model.Cta</span></div>
     }
 
     <div class="z-10 h-full flex flex-col justify-end">
         @if (Model.Img != null)
         {
-            <div class="top-[3.75rem] lg:top-[6rem] absolute left-2/4 -translate-x-1/2">
+            <div class="top-[3.75rem] lg:top-[2rem] absolute left-2/4 -translate-x-1/2">
                 <img src="@Model.Img.Url()" alt="@Model.Img.Name" class="h-full w-full object-cover"/>
             </div>
         }
@@ -40,7 +40,7 @@
 
             @if (Model.StopGamesDescription != null)
             {
-                <div class="text-center mt-4 text-white text-10">
+                <div class="text-center mt-4 text-white text-8 md:text-10">
                     @Model.StopGamesDescription
                 </div>
             }
