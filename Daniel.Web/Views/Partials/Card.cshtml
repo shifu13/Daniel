@@ -5,13 +5,15 @@
 
 @{
     var tag = "";
+    var empty = "";
     @foreach (var item in Model.Category)
     {
-        tag += " " + item; 
+        empty = String.Concat(item.Where(x => !Char.IsWhiteSpace(x)));
+        tag += " " + empty; 
     }
 }
      
-<div class="element-item @tag | flex flex-col group rounded-2xl h-[20rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-red-300" data-category="@tag">
+<div class="element-item @tag | flex flex-col group rounded-2xl h-[25rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-slate-700" data-category="@tag">
     @if (Model.Cta != null && Model.Cta != "Ingen")
     {
         <div class="ribbon ribbon-top-left z-10"><span style="background-color: #@Model.CtaBgColor">@Model.Cta</span></div>
@@ -25,15 +27,15 @@
             </div>
         }
 
-        <div class="p-3 lg:p-[2rem] z-10">
+        <div class="p-3 lg:py-[1.5rem] lg:px-[1.250rem] z-10">
             @if (Model.Description != null)
             {
-                <div class="text-14 md:text-16 lg:text-17 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@Model.Description</div>   
+                <div class="text-14 lg:text-17 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@Model.Description</div>   
             }
             
             @if (Model.Link != null)
             {
-                <a href="@Model.Link.Url" target="_blank" class="bg-ui-blue font-montserrat flex flex-row rounded justify-center font-semibold text-10 sm:text-12 md:text-16 lg:text-18 relative px-4 py-4 md:px-5 md:py-4 lg:px-5 lg:py-4 2xl:px-6 2xl:py-4 hover:text-white transition ease-in-out duration-300">
+                <a href="@Model.Link.Url" target="_blank" class="bg-ui-blue text-white font-montserrat flex flex-row rounded justify-center font-semibold text-10 sm:text-12 md:text-14 lg:text-16 xl:text-18 relative px-4 py-2 md:px-5 lg:px-5 2xl:px-6 2xl:py-4 hover:border-white hover:bg-transparent border border-2 border-ui-blue transition ease-in-out duration-300">
                     @Model.Link.Name
                 </a>
             }
@@ -99,10 +101,16 @@
      
       box-shadow: 0 5px 10px rgba(0,0,0,.1);
       color: #fff;
-      font: 700 18px/1 'Lato', sans-serif;
+      font: 700 15px/1 'Lato', sans-serif;
       text-shadow: 0 1px 1px rgba(0,0,0,.2);
       text-transform: uppercase;
       text-align: center;
+    }
+
+    @@media only screen and (max-width: 767px) {
+        .ribbon span {
+            font: 700 12px/1 'Lato', sans-serif;
+        }
     }
 
     /* top left*/

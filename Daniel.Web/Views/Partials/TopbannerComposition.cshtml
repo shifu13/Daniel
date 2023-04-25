@@ -14,8 +14,8 @@
 >
 	<div x-ref="topbannercontainer" class="flex flex-nowrap flex-row overflow-hidden">
 		@foreach (BlockListItem<ContentModels.TopbannerWithImageElement> item in Model.Topbanner) {
-			<div class="relative overflow-hidden h-[31.8125rem] md:h-[34rem] lg:h-[56.25rem] w-full">
-				@if (item.Content.Image != null)
+			<div class="relative overflow-hidden h-[20rem] md:h-[34rem] lg:h-[43rem] w-full">
+				@if (item.Content.Image != null) 
 				{	
 					<div class="@(item.Content.Overlay ? "overlay" : "") absolute inset-0 overflow-hidden">
 						@if (item.Content.Image.Url().EndsWith(".mp4"))
@@ -28,11 +28,11 @@
 						}
 					</div>
 				}
-				<div class="container z-10 relative h-full z-40 md:pb-[5rem] lg:pb-[13.81rem]">
+				<div class="container z-10 relative h-full z-40">
 					<div class="flex flex-col h-full justify-center items-center">
 						@if (item.Content.Header != null && item.Content.Header.Any())
 						{
-							<h1 class="rte-header || @(item.Content.Overlay ? "text-white" : "") text-38 md:text-55 lg:text-88 font-semibold leading-[3.125rem] md:leading-[4rem] lg:leading-[5.625rem] max-w-[20rem] md:max-w-[28.125rem] lg:max-w-6xl drop-shadow-sm font-montserrat">@item.Content.Header</h1>
+							<h1 class="rte-header || @(item.Content.Overlay ? "text-white" : "") text-30 sm:text-38 md:text-55 lg:text-88 font-semibold leading-[3.125rem] md:leading-[4rem] lg:leading-[5.625rem] max-w-[20rem] md:max-w-[28.125rem] lg:max-w-6xl drop-shadow-sm font-montserrat">@item.Content.Header</h1>
 						} 
 						@if (item.Content.Description != null && item.Content.Description.Any()) 
 						{

@@ -15,9 +15,9 @@
 
                 @if (!site.FooterEmail.IsNullOrWhiteSpace())
                 {
-                    <div class="flex flex-row items-center justify-center md:justify-start gap-2">
-                        <ec-svg src="~/img/icons/envelope.svg" alt="envelope" class="w-5 h-10 object-cover text-white"></ec-svg>
-                        <a href="mailto:@site.FooterEmail" class="text-white">@site.FooterEmail</a>
+                    <div class="flex flex-row items-center justify-center md:justify-start gap-2 mb-2 md:mb-0">
+                        <ec-svg src="~/img/icons/envelope.svg" alt="envelope" class="w-5 h-10 object-cover text-white shrink-0"></ec-svg>
+                        <a href="mailto:@site.FooterEmail" class="text-white text-16 md:text-14 lg:text-16">@site.FooterEmail</a> 
                     </div>
                 }
 
