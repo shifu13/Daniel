@@ -42,26 +42,24 @@
 							<ec-svg src="~/img/icons/arrow-down.svg" class="h-5 w-5 text-brand"></ec-svg>
 						</div>
 						
-						<div class="lg:hidden bg-ui-blue text-white drop-shadow-md rounded-b-[1.875rem] px-4 py-6 absolute top-full left-0 right-0 z-50 w-full ease-in-out transition-all"
+						<div class="lg:hidden bg-ui-blue text-white drop-shadow-md rounded-b-[1.875rem] px-4 pt-4 absolute top-full left-0 right-0 z-50 w-full ease-in-out transition-all"
 							x-show="open" 
 							x-on:click.away="open = false" 
 							x-cloak
 							>
-							<div class="w-full text-center relative mb-6">
+							<div class="w-full text-center relative">
 								<p class="font-bold text-18 leading-20">@Umbraco.GetDictionaryValue("Filter Type", "Vælg kategori")</p>
 								<button class="absolute top-0 right-2" x-on:click="open = false">
 									<ec-svg src="~/img/icons/cross.svg" class="h-5 w-5 text-white"></ec-svg>
 								</button>
 							</div>
 							<div class="flex flex-col items-start">
-								<button x-on:click="title = 'Alle', open = false" :class="{ 'border-white': title == 'Alle', 'border-brand': title != 'Alle' }"  class="button is-checked | text-18 mb-6 flex flex-row items-center justify-between w-full border border-2 px-4 py-2 rounded-full" data-filter="*">
+								<button x-on:click="title = 'Alle', open = false" class="button is-checked | text-18 flex flex-row items-center justify-between w-full pb-2" data-filter="*">
 									@Umbraco.GetDictionaryValue("Filter Everyone","Alle")
-									<ec-svg src="~/img/icons/checked.svg"  :class="{'hidden' : title != 'Alle'}" class="h-6 w-6 text-white"></ec-svg>
 								</button>
 								@foreach (var tag in allTags) {
-									<button x-on:click="title = '@tag', open = false" :class="{'border-white': title == '@tag', 'border-brand' : title != '@tag'}" class="button | text-18 mb-6 flex flex-row items-center justify-between w-full border border-2 px-4 py-2 rounded-full" data-filter=".@tag">
+									<button x-on:click="title = '@tag', open = false" class="button | text-18 flex flex-row items-center justify-between w-full pb-2" data-filter=".@tag">
 										@tag
-										<ec-svg src="~/img/icons/checked.svg"  :class="{'hidden' : title != '@tag'}" class="h-6 w-6 text-white"></ec-svg>
 									</button>
 								}
 							</div>
@@ -72,7 +70,7 @@
 					</button>
 				
 					@foreach (var tag in allTags) {
-						<button class="button | hidden md:block text-l uppercase font-montserrat" data-filter=".@tag">
+						<button class="button | hidden md:block text-lg uppercase font-montserrat" data-filter=".@tag">
 							@tag
 						</button>
 					}
