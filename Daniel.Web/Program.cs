@@ -17,7 +17,9 @@ namespace Ecreo.Essentials.UmbracoTemplate
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStaticWebAssets();
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseIISIntegration();
+                    webBuilder.UseIIS();
+					webBuilder.UseStartup<Startup>();
                 });
     }
 }
