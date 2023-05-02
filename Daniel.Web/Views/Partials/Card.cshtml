@@ -13,7 +13,13 @@
     }
 }
      
-<div class="element-item @tag | flex flex-col group rounded-2xl h-[25rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-slate-700" data-category="@tag">
+<div class="element-item @tag | flex flex-col group rounded-2xl h-[25rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-slate-700 bg-cover" data-category="@tag" style="background-image: url(@Model.Bgimg?.Url())">
+    
+    @if (Model.Bgimg != null)
+    {
+        <div class="overlay absolute inset-0 overflow-hidden"></div>
+    }
+
     @if (Model.Cta != null && Model.Cta != "Ingen")
     {
         <div class="ribbon ribbon-top-left z-10"><span style="background-color: #@Model.CtaBgColor">@Model.Cta</span></div>
@@ -22,7 +28,7 @@
     <div class="z-10 h-full flex flex-col justify-end">
         @if (Model.Img != null)
         {
-            <div class="top-[3.75rem] lg:top-[2rem] absolute left-2/4 -translate-x-1/2">
+            <div class="top-[3.75rem] lg:top-[2rem] absolute left-2/4 -translate-x-1/2 z-10">
                 <img src="@Model.Img.Url()" alt="@Model.Img.Name" class="h-full w-full object-cover"/>
             </div>
         }
@@ -30,7 +36,7 @@
         <div class="p-3 lg:py-[1.5rem] lg:px-[1.250rem] z-10">
             @if (Model.Description != null)
             {
-                <div class="text-14 lg:text-17 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@Model.Description</div>   
+                <div class="text-14 lg:text-16 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@Model.Description</div>   
             }
             
             @if (Model.Link != null)
@@ -110,6 +116,7 @@
     @@media only screen and (max-width: 767px) {
         .ribbon span {
             font: 700 12px/1 'Lato', sans-serif;
+            padding: 10px 0;
         }
     }
 
@@ -117,6 +124,13 @@
     .ribbon-top-left {
       top: -10px;
       left: -10px;
+    }
+
+    @@media only screen and (max-width: 767px) {
+        .ribbon-top-left {
+            top: -10px;
+            left: -20px;
+        }
     }
     .ribbon-top-left::before,
     .ribbon-top-left::after {

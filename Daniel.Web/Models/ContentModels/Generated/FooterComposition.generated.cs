@@ -42,6 +42,11 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> FooterNavigationSecondary { get; }
 
+		/// <summary>#Sekunder beskrivelse</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterSecondaryDescription { get; }
+
 		/// <summary>#Social Links</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -135,6 +140,19 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> GetFooterNavigationSecondary(IFooterComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(publishedValueFallback, "footerNavigationSecondary");
+
+		///<summary>
+		/// #Sekunder beskrivelse
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerSecondaryDescription")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterSecondaryDescription => GetFooterSecondaryDescription(this, _publishedValueFallback);
+
+		/// <summary>Static getter for #Sekunder beskrivelse</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetFooterSecondaryDescription(IFooterComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "footerSecondaryDescription");
 
 		///<summary>
 		/// #Social Links

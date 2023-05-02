@@ -114,6 +114,14 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> FooterNavigationSecondary => global::Ecreo.Essentials.UmbracoTemplate.Models.ContentModels.FooterComposition.GetFooterNavigationSecondary(this, _publishedValueFallback);
 
 		///<summary>
+		/// #Sekunder beskrivelse
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerSecondaryDescription")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterSecondaryDescription => global::Ecreo.Essentials.UmbracoTemplate.Models.ContentModels.FooterComposition.GetFooterSecondaryDescription(this, _publishedValueFallback);
+
+		///<summary>
 		/// #Social Links
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]

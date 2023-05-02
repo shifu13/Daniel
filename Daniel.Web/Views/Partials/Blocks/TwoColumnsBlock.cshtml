@@ -17,16 +17,11 @@
     <div id="@Model.Content.AnchorLinkText" class="flex flex-col md:flex-row items-center flex-nowrap">
         @if (Model.Content.Img != null)
         {
-            <div class="relative grow md:w-1/2 @(Model.Content.TextLeft ? "order-2" : "")">
-                <ec-picture src="@Model.Content.Img.Url()" alt="@Model.Content.Img.Name" width="500" quality="0" img-class="w-full h-full object-cover"></ec-picture>
-                @*
-                    <img src="@Model.Content.Img.Url()" alt="@Model.Content.Img.Name" class="w-full h-full object-cover"/>
-                *@
-            </div>
+            <div class="relative grow w-full md:w-1/2 @(Model.Content.TextLeft ? "md:order-2" : "") bg-fixed bg-cover h-[10rem] md:h-[25rem]" style="background-image: url(@Model.Content?.Img?.Url())"></div>
         }
         @if (Model.Content.Text != null)
         {
-            <div class="md:w-1/2 grow @(Model.Content.TextLeft ? "order-1" : "")">
+            <div class="md:w-1/2 grow @(Model.Content.TextLeft ? "md:order-1" : "")">
                 <div class="rte | mx-auto max-w-[30rem] py-4 md:pl-4 md:pt-4 w-full">
                     @Model.Content.Text
                 </div>

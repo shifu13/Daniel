@@ -50,6 +50,14 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		// properties
 
 		///<summary>
+		/// Baggrundsbillede
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("bgimg")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Bgimg => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "bgimg");
+
+		///<summary>
 		/// Kategori: Følgende benyttes til sortering af kategorier
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
@@ -82,7 +90,7 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Description => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "description");
 
 		///<summary>
-		/// Billede
+		/// Billede: Benyttes primært til logoer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
