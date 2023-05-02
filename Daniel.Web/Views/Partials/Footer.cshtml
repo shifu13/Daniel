@@ -10,18 +10,18 @@
             <div>
                 @if (!site.FooterTitle.IsNullOrWhiteSpace())
                 {
-                    <h3 class="font-montserrat uppercase font-semibold text-white text-xl text-center md:text-left">@site.FooterTitle</h3>
+                    <h3 class="font-montserrat uppercase font-semibold text-white text-xl text-center md:text-left">@site?.FooterTitle</h3>
                 }
 
                 @if (!site.FooterEmail.IsNullOrWhiteSpace())
                 {
                     <div class="flex flex-row items-center justify-center md:justify-start gap-2 mb-2 md:mb-0">
                         <ec-svg src="~/img/icons/envelope.svg" alt="envelope" class="w-5 h-10 object-cover text-white shrink-0"></ec-svg>
-                        <a href="mailto:@site.FooterEmail" class="text-white text-16 md:text-14 lg:text-16 hover:text-ui-blue transition-all ease-in-out">@site.FooterEmail</a>
+                        <a href="mailto:@site.FooterEmail" class="text-white text-16 md:text-14 lg:text-16 hover:text-ui-blue transition-all ease-in-out">@site?.FooterEmail</a>
                     </div>
                 }
 
-                @if (site.FooterSocialLinks != null && site.FooterSocialLinks.Any())
+                @if (site?.FooterSocialLinks != null && site.FooterSocialLinks.Any())
                 {
                     <div class="flex flex-row justify-center items-center md:justify-start gap-2 mb-4">
                         @foreach (var item in site.FooterSocialLinks)

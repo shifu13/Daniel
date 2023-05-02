@@ -9,7 +9,7 @@
     >
         <div class="container mx-auto">
             <div class="flex flex-row items-center gap-x-12">
-                <a class="font-montserrat uppercase font-semibold text-white text-xl hover:text-ui-blue transition-all ease-in-out" href="@Umbraco.ContentAtRoot().FirstOrDefault().Url()">@Model.FooterTitle</a>
+                <a class="font-montserrat uppercase font-semibold text-white text-xl hover:text-ui-blue transition-all ease-in-out" href="@Umbraco?.ContentAtRoot()?.FirstOrDefault()?.Url()">@Model.FooterTitle</a>
             
                 @if (Model.MainNavigation != null && Model.MainNavigation.Any())
                 {

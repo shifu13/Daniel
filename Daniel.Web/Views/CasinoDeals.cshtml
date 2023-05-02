@@ -57,6 +57,7 @@
 								<button x-on:click="title = 'Alle', open = false" class="button is-checked | text-18 flex flex-row items-center justify-between w-full pb-2" data-filter="*">
 									@Umbraco.GetDictionaryValue("Filter Everyone","Alle")
 								</button>
+								
 								@foreach (var tag in allTags) {
 									<button x-on:click="title = '@tag', open = false" class="button | text-18 flex flex-row items-center justify-between w-full pb-2" data-filter=".@tag">
 										@tag
@@ -82,10 +83,7 @@
 				<div class="gutter-sizer"></div>
 				
 				<div class="relative py-8" x-intersect:enter="shown = true">
-					@{
-						var count = 0;
-					}
-					@if (Model.Children<ContentModels.SingleCasinoDeal>().Distinct() != null) {
+					@if (Model.Children<ContentModels.SingleCasinoDeal>()?.Distinct() != null) {
 						@foreach (var item in Model.Children<ContentModels.SingleCasinoDeal>().Distinct()) 
 						{
 							@Html.Partial("Card", item)

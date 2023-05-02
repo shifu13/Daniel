@@ -4,7 +4,7 @@
 {
     <div class="relative">
         <div id="@Model.Content.AnchorLinkText" class="@(Model.Content.Overlay ? "overlay" : "") py-8 flex items-center justify-center bg-fixed bg-cover w-full h-[25rem]" style="background-image: url(@Model.Content?.Img?.Url())">
-            @if (Model.Content.Text != null)
+            @if (Model.Content?.Text != null)
             {
                 <div class="rte | container mx-auto text-white z-10">
                     @Model.Content.Text
@@ -19,7 +19,7 @@
         {
             <div class="relative grow w-full md:w-1/2 @(Model.Content.TextLeft ? "md:order-2" : "") bg-fixed bg-cover h-[10rem] md:h-[25rem]" style="background-image: url(@Model.Content?.Img?.Url())"></div>
         }
-        @if (Model.Content.Text != null)
+        @if (Model.Content?.Text != null)
         {
             <div class="md:w-1/2 grow @(Model.Content.TextLeft ? "md:order-1" : "")">
                 <div class="rte | mx-auto max-w-[30rem] py-4 md:pl-4 md:pt-4 w-full">
