@@ -58,6 +58,13 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual string AnchorLinkText => this.Value<string>(_publishedValueFallback, "anchorLinkText");
 
 		///<summary>
+		/// Skjul element: Dette skjuler blok elementet
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
+		[ImplementPropertyType("hideElement")]
+		public virtual bool HideElement => this.Value<bool>(_publishedValueFallback, "hideElement");
+
+		///<summary>
 		/// Billede
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]

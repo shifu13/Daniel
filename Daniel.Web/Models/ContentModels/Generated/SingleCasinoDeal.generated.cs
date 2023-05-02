@@ -82,6 +82,14 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual string CtaBgColor => this.Value<string>(_publishedValueFallback, "ctaBgColor");
 
 		///<summary>
+		/// Custom baggrundsfarve: Mulighed for at vælge egen baggrundsfarve. Brug HEX farvekode
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("customBGColor")]
+		public virtual string CustomBgcolor => this.Value<string>(_publishedValueFallback, "customBGColor");
+
+		///<summary>
 		/// Beskrivelse
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]

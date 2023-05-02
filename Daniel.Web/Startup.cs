@@ -47,7 +47,6 @@ public class Startup
             {
                 o.DefaultTitleField = "metaTitle";
                 o.DisallowedPropertyAliases = new List<string> { "umbracoSitemapHide" };
-                o.DisallowedContentTypeAliases = new List<string> { ContentModels.SearchResultsPage.ModelTypeAlias };
                 o.XPathsToRemove = new List<string> { "//script", "//head" };
             });
         #endregion

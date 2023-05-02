@@ -3,7 +3,7 @@
 @if (Model.Content.OneColumn)
 {
     <div class="relative">
-        <div id="@Model.Content.AnchorLinkText" class="@(Model.Content.Overlay ? "overlay" : "") py-8 flex items-center justify-center bg-fixed bg-cover w-full h-[25rem]" style="background-image: url(@Model.Content?.Img?.Url())">
+        <div id="@Model.Content.AnchorLinkText" class="@(Model.Content.Overlay ? "overlay" : "") @(Model.Content.HideElement ? "hidden" : "") py-8 flex items-center justify-center bg-fixed bg-cover w-full h-[25rem]" style="background-image: url(@Model.Content?.Img?.Url())">
             @if (Model.Content?.Text != null)
             {
                 <div class="rte | container mx-auto text-white z-10">
@@ -11,10 +11,10 @@
                 </div>
             }
         </div>
-    </div>
+    </div> 
 } else
 {
-    <div id="@Model.Content.AnchorLinkText" class="flex flex-col md:flex-row items-center flex-nowrap">
+    <div id="@Model.Content.AnchorLinkText" class="flex flex-col md:flex-row items-center flex-nowrap @(Model.Content.HideElement ? "hidden" : "")">
         @if (Model.Content.Img != null)
         {
             <div class="relative grow w-full md:w-1/2 @(Model.Content.TextLeft ? "md:order-2" : "") bg-fixed bg-cover h-[10rem] md:h-[25rem]" style="background-image: url(@Model.Content?.Img?.Url())"></div>
