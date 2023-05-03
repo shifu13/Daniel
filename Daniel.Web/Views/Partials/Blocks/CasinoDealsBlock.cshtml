@@ -25,7 +25,7 @@
         {
             @foreach (ContentModels.SingleCasinoDeal item in Model.Content.ChooseCasinoDeals)
             {
-            <div class="flex flex-col group rounded-2xl h-[20rem] lg:h-[36.25rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-slate-700">
+                <div class="flex flex-col group rounded-2xl h-[23rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow @(!item.CustomBgcolor.IsNullOrWhiteSpace() ? "" : "bg-slate-700")" style="background-image: url(@item.Bgimg?.Url()); background-color: @item.CustomBgcolor;">
                 @if (@item.Cta != null && @item.Cta != "Ingen")
                 {
                     <div class="ribbon ribbon-top-left"><span style="background-color: #@item.CtaBgColor">@item.Cta</span></div>
@@ -42,7 +42,7 @@
                     <div class="p-3 lg:py-[1.5rem] lg:px-[1.250rem] z-10">
                         @if (@item.Description != null)
                         {
-                            <div class="text-14 lg:text-17 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@item.Description</div>
+                            <div class="text-12 sm:text-14 lg:text-17 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@item.Description</div>
                         }
             
                         @if (@item.Link != null)

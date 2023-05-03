@@ -13,7 +13,7 @@
     }
 }
      
-<div class="element-item @tag | flex flex-col group rounded-2xl h-[25rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-cover @(!Model.CustomBgcolor.IsNullOrWhiteSpace() ? "" : "bg-slate-700")" data-category="@tag" style="background-image: url(@Model.Bgimg?.Url()); background-color: @Model.CustomBgcolor;">
+<div class="element-item @tag | flex flex-col group rounded-2xl h-[23rem] lg:h-[30rem] mb-4 md:mb-[1.875rem] lg:mb-10 relative overflow-hidden drop-shadow bg-cover @(!Model.CustomBgcolor.IsNullOrWhiteSpace() ? "" : "bg-slate-700")" data-category="@tag" style="background-image: url(@Model.Bgimg?.Url()); background-color: @Model.CustomBgcolor;">
     
     @if (Model.Bgimg != null)
     {
@@ -36,7 +36,7 @@
         <div class="p-3 lg:py-[1.5rem] lg:px-[1.250rem] z-10">
             @if (Model.Description != null)
             {
-                <div class="text-14 lg:text-16 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@Model.Description</div>   
+                <div class="text-12 sm:text-14 lg:text-16 lg:font-bold leading-tight text-white z-10 font-semibold pb-4 lg:pb-6 leading-6 text-center">@Model.Description</div>
             }
             
             @if (Model.Link != null)
