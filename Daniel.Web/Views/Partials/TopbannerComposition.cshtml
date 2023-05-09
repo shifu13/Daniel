@@ -32,11 +32,11 @@
 					<div class="flex flex-col h-full justify-center items-center">
 						@if (item.Content.Header != null && item.Content.Header.Any())
 						{
-							<h1 class="rte-header || @(item.Content.Overlay ? "text-white" : "") text-30 sm:text-38 md:text-55 lg:text-88 font-semibold leading-[3.125rem] md:leading-[4rem] lg:leading-[5.625rem] max-w-[20rem] md:max-w-[28.125rem] lg:max-w-6xl drop-shadow-sm font-montserrat">@item.Content.Header</h1>
+							<h1 class="rte-header || @(item.Content.Overlay ? "text-white" : "") text-center text-30 sm:text-38 md:text-55 lg:text-88 font-semibold leading-[3.125rem] md:leading-[4rem] lg:leading-[5.625rem] max-w-[20rem] md:max-w-[28.125rem] lg:max-w-6xl drop-shadow-sm font-montserrat">@item.Content.Header</h1>
 						} 
 						@if (item.Content.Description != null && item.Content.Description.Any()) 
 						{
-							<p class="@(item.Content.Overlay ? "text-white" : "") font-karla">@item.Content.Description</p>   
+							<p class="@(item.Content.Overlay ? "text-white" : "") font-karla text-center">@item.Content.Description</p>   
 						}
 						@if (item.Content.Link != null) {
 							<a href="@item.Content.Link.Url" class="border border-2 bg-transparent uppercase font-montserrat text-12 md:text-16 lg:text-20 text-white font-semibold px-8 py-4 mt-8 lg:mt-12 transition-all ease-in-out hover:bg-white hover:text-black hover:font-semibold">@item.Content.Link.Name</a>
