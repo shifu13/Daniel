@@ -4,7 +4,7 @@
 <Header class="fixed top-0 z-50 w-full" x-data="{atTop: false}">
     <nav 
         class="py-4 md:py-[1.5rem] 2xl:py-[2.5rem]"
-        :class="{ 'shadow-lg bg-slate-700': atTop, 'bg-transparent': !atTop}"
+        :class="{ 'shadow-lg bg-slate-700': atTop}"
          @@scroll.window="atTop = (window.pageYOffset < 50) ? false: true"
     >
         <div class="container mx-auto">
