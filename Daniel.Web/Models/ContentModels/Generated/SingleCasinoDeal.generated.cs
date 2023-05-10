@@ -66,7 +66,7 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual global::System.Collections.Generic.IEnumerable<string> Category => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "category");
 
 		///<summary>
-		/// CTA
+		/// Label
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -74,7 +74,7 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual string Cta => this.Value<string>(_publishedValueFallback, "cta");
 
 		///<summary>
-		/// CTA baggrundsfarve
+		/// Label baggrundsfarve
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

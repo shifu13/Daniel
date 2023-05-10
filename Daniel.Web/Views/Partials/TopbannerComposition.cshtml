@@ -39,7 +39,7 @@
 							<p class="@(item.Content.Overlay ? "text-white" : "") font-karla text-center">@item.Content.Description</p>   
 						}
 						@if (item.Content.Link != null) {
-							<a href="@item.Content.Link.Url" class="border border-2 bg-transparent uppercase font-montserrat text-12 md:text-16 lg:text-20 text-white font-semibold px-8 py-4 mt-8 lg:mt-12 transition-all ease-in-out hover:bg-white hover:text-black hover:font-semibold">@item.Content.Link.Name</a>
+							<a href="@item.Content.Link.Url" class="@(item.Content.Overlay ? "text-white hover:bg-white hover:text-black border-white hover:border-white" : "hover:text-white text-black border-black hover:border-white") border border-2 bg-transparent uppercase font-montserrat text-12 md:text-16 lg:text-20 font-semibold px-8 py-4 mt-8 lg:mt-12 transition-all ease-in-out hover:font-semibold">@item.Content.Link.Name</a>
 						}
 					</div>
 				</div>

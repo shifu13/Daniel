@@ -50,7 +50,7 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		// properties
 
 		///<summary>
-		/// Description
+		/// Beskrivelse
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +58,7 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual string Description => this.Value<string>(_publishedValueFallback, "description");
 
 		///<summary>
-		/// Header
+		/// Titel
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -66,7 +66,7 @@ namespace Ecreo.Essentials.UmbracoTemplate.Models.ContentModels
 		public virtual string Header => this.Value<string>(_publishedValueFallback, "header");
 
 		///<summary>
-		/// Image
+		/// Billede
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.5.0+8e32ac3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
